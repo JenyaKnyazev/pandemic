@@ -1,7 +1,7 @@
 #ifndef MEDIC_H
 #define MEDIC_H
 #include "Player.hpp"
-
+#include <string>
 class Medic:public Player
 {
     public:
@@ -12,6 +12,7 @@ class Medic:public Player
         void fly_charter(int);
         void fly_shuttle(int);
         Player& drive(int);
+        std::string role();
 };
 
 #endif // MEDIC_H

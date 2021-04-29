@@ -5,11 +5,9 @@
 #include "Virologist.hpp"
 #include "Board.hpp"
 #include <exception>
-
+#include "FieldDoctor.hpp"
 int main()
 {
-    Board b;
-    Virologist v(b,City::Kinshasa);
 
     return 0;
 }

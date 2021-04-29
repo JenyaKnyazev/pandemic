@@ -1,7 +1,6 @@
 #ifndef SCIENTIST_H
 #define SCIENTIST_H
 #include "Player.hpp"
-#include "dontHaveCardException.hpp"
 class Scientist:public Player
 {
     public:

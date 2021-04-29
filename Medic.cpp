@@ -1,5 +1,5 @@
 #include "Medic.hpp"
-#include "labException.hpp"
+#include "MyException.h"
 Medic::Medic(Board& b,int city):Player(b,city)
 {
 }
@@ -10,7 +10,7 @@ Medic::~Medic()
 }
 void Medic::treat(int c){
     if(board.get_health(current_city)==0||c!=current_city)
-        throw labException();
+        throw MyException("there is no infection on the city or trying to treat not current city");
     while(board.get_health(current_city)>0)
         Player::treat(c);
 }
@@ -34,4 +34,7 @@ Player& Medic::drive(int c){
     if(board.get_health(current_city)>0)
         treat(current_city);
     return s;
+}
+std::string Medic::role(){
+    return "Medic";
 }
