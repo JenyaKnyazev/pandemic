@@ -8,6 +8,7 @@ class Researcher:public Player
         Researcher(Board&,int);
         virtual ~Researcher();
         void discover_cure(int);
+        string role();
 };
 
 #endif // RESEARCHER_H

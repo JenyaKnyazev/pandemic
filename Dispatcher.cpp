@@ -15,3 +15,6 @@ void Dispatcher::fly_direct(int c){
     else
         Player::fly_direct(c);
 }
+string Dispatcher::role(){
+    return "Dispatcher";
+}

@@ -20,3 +20,6 @@ void Scientist::discover_cure(int color){
     }else
         throw dontHaveCardException();
 }
+string Scientist::role(){
+    return "Scientist";
+}

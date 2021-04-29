@@ -20,3 +20,6 @@ void Virologist::treat(int c){
         Player::treat(c);
     }
 }
+string Virologist::role(){
+    return "Virologist";
+}

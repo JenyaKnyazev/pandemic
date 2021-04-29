@@ -8,6 +8,7 @@ class Scientist:public Player
         Scientist(Board&,int,int);
         virtual ~Scientist();
         void discover_cure(int);
+        string role();
     private:
         int number_of_cards_to_discover;
 };

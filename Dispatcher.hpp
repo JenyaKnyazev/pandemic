@@ -8,6 +8,7 @@ class Dispatcher:public Player
         Dispatcher(Board&,int);
         virtual ~Dispatcher();
         void fly_direct(int);
+        string role();
 };
 
 #endif // DISPATCHER_H

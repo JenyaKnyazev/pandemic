@@ -1,3 +1,6 @@
+#ifndef PLAYER_HPP
+#define PLAYER_HPP
+
 #include <string>
 #include "Board.hpp"
 using namespace std;
@@ -23,3 +26,4 @@ class Player
         Player& take_card(int);
         void drop_card(int);
 };
+#endif
