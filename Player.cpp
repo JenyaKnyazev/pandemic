@@ -1,9 +1,6 @@
 #include "Player.hpp"
 #include <iostream>
-#include "dontHaveCardException.hpp"
-#include "cityHaveLabException.h"
-#include "driveException.hpp"
-#include "labException.hpp"
+#include "MyException.h"
 Player::Player(Board& b,int city):board(b),current_city(city)
 {
     cards=new int[48];
@@ -22,9 +19,9 @@ Player::~Player()
 }
 void Player::build(){
     if(board.is_lab(current_city))
-        throw cityHaveLabException();
+        throw MyException("the city already have a lab\n");
     if(cards[current_city]==0)
-        throw dontHaveCardException();
+        throw MyException("don't have a card to build\n");
     board.build(current_city);
 }
 void Player::fly_direct(int c){
@@ -32,7 +29,7 @@ void Player::fly_direct(int c){
         drop_card(c);
         current_city=c;
     }else
-        throw dontHaveCardException();
+        throw MyException("dont have a card of direction city to fly direct\n");
 }
 void Player::discover_cure(int color){
     if(board.is_lab(current_city)&&count_colors[color]>=5){
@@ -43,11 +40,11 @@ void Player::discover_cure(int color){
                 c++;
             }
     }else
-        throw dontHaveCardException();
+        throw MyException("don't have enough cards to discover cure OR do't have lab in the current city\n");
 }
 void Player::treat(int c){
     if(board.get_health(current_city)==0||c!=current_city)
-        throw labException();
+        throw MyException("there is no infection on the city or trying to treat not current city");
     else if( board.is_discovered_cure(board.get_color(current_city)) )
         board[current_city]=0;
     else
@@ -57,7 +54,7 @@ Player& Player::drive(int c){
     if(board.can_drive(current_city,c)){
         current_city=c;
     }else
-        throw driveException();
+        throw MyException("cannot drive to not connected city");
         return *this;
 }
 Player& Player::take_card(int card){
@@ -71,7 +68,7 @@ void Player::drop_card(int card){
 }
 void Player::fly_charter(int c){
     if(cards[current_city]==0)
-        throw dontHaveCardException();
+        throw MyException("don't have a card of current city to fly charter");
     else{
         drop_card(current_city);
         current_city=c;
@@ -81,5 +78,5 @@ void Player::fly_shuttle(int c){
     if(board.is_lab(c)&&board.is_lab(current_city)){
         current_city=c;
     }else
-        throw labException();
+        throw MyException("don't have lab in the current city or in direct city cannot fly shuttle");
 }

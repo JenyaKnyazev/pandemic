@@ -1,5 +1,5 @@
 #include "Scientist.hpp"
-
+#include "MyException.h"
 Scientist::Scientist(Board& b,int city,int num=4):Player(b,city)
 {
     number_of_cards_to_discover=num;
@@ -18,7 +18,7 @@ void Scientist::discover_cure(int color){
                 c++;
             }
     }else
-        throw dontHaveCardException();
+        throw MyException("don't have enough cards to discover cure OR there is no lab in the city");
 }
 string Scientist::role(){
     return "Scientist";

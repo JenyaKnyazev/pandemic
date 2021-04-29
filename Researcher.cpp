@@ -1,5 +1,5 @@
 #include "Researcher.hpp"
-#include "dontHaveCardException.hpp"
+#include "MyException.h"
 Researcher::Researcher(Board& b,int city):Player(b,city)
 {
     //ctor
@@ -18,7 +18,7 @@ void Researcher::discover_cure(int color){
                 c++;
             }
     }else
-        throw dontHaveCardException();
+        throw MyException("don't have a enough cards to discover cure");
 }
 string Researcher::role(){
     return "Researcher";

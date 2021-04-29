@@ -1,5 +1,5 @@
 #include "GeneSplicer.hpp"
-#include "dontHaveCardException.hpp"
+#include "MyException.h"
 GeneSplicer::GeneSplicer(Board& b,int c):Player(b,c)
 {
 
@@ -22,5 +22,5 @@ void GeneSplicer::discover_cure(int color){
                 c2++;
             }
     }else
-        throw dontHaveCardException();
+        throw MyException("don't have enough cards to discover a cure or there is no lab in the city");
 }
