@@ -18,6 +18,7 @@ class Board
         void discover_cure(int);
         int is_discovered_cure(int);
         friend ostream& operator<<(ostream&,Board&);
+        void remove_cures();
     private:
         int* cities_health;
         int* cities_labs;
