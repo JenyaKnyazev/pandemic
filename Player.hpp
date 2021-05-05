@@ -1,6 +1,6 @@
 #ifndef PLAYER_HPP
 #define PLAYER_HPP
-
+#include "Color.hpp"
 #include <string>
 #include "Board.hpp"
 using namespace std;
@@ -20,7 +20,7 @@ class Player
         virtual void fly_charter(int);
         virtual void fly_shuttle(int);
         virtual void build();
-        virtual void discover_cure(int);
+        virtual void discover_cure(Color);
         virtual void treat(int);
         virtual string role()=0;
         Player& take_card(int);

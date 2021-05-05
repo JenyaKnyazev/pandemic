@@ -9,11 +9,11 @@ Scientist::~Scientist()
 {
 }
 
-void Scientist::discover_cure(int color){
-    if(board.is_lab(current_city)&&count_colors[color]>=number_of_cards_to_discover){
-        board.discover_cure(color);
+void Scientist::discover_cure(Color color){
+    if(board.is_lab(current_city)&&count_colors[static_cast<int>(color)]>=number_of_cards_to_discover){
+        board.discover_cure(static_cast<int>(color) );
         for(int i=0,c=0;i<48&&c<number_of_cards_to_discover;i++)
-            if( board.get_color(cards[i])==color){
+            if( board.get_color(cards[i])==static_cast<int>(color) ){
                 drop_card(cards[i]);
                 c++;
             }

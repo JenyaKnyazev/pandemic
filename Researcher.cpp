@@ -9,11 +9,11 @@ Researcher::~Researcher()
 {
     //dtor
 }
-void Researcher::discover_cure(int color){
-    if(count_colors[color]>=5){
-        board.discover_cure(color);
+void Researcher::discover_cure(Color color){
+    if(count_colors[static_cast<int>(color) ]>=5){
+        board.discover_cure(static_cast<int>(color) );
         for(int i=0,c=0;i<48&&c<5;i++)
-            if( board.get_color(cards[i])==color){
+            if( board.get_color(cards[i])==static_cast<int>(color) ){
                 drop_card(cards[i]);
                 c++;
             }

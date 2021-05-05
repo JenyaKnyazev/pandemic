@@ -1,6 +1,7 @@
 #include "Player.hpp"
 #include <iostream>
 #include "MyException.h"
+
 Player::Player(Board& b,int city):board(b),current_city(city)
 {
     cards=new int[48];
@@ -31,9 +32,9 @@ void Player::fly_direct(int c){
     }else
         throw MyException("dont have a card of direction city to fly direct\n");
 }
-void Player::discover_cure(int color){
-    if(board.is_lab(current_city)&&count_colors[color]>=5){
-        board.discover_cure(color);
+void Player::discover_cure(Color color){
+    if(board.is_lab(current_city)&&count_colors[static_cast<int>(color)]>=5){
+        board.discover_cure(static_cast<int>(color) );
         for(int i=0,c=0;i<48&&c<5;i++)
             if( board.get_color(cards[i])==color){
                 drop_card(cards[i]);

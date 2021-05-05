@@ -1,13 +1,10 @@
+#ifndef COLOR_H
+#define COLOR_H
 
-class Color
+
+enum class Color
 {
-    public:
-        Color();
-        virtual ~Color();
-    enum Colors{
-        Blue,
-        Black,
-        Red,
-        Yellow
-    };
+    Blue,Black,Red,Yellow
 };
+
+#endif // COLOR_H
