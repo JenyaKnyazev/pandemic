@@ -2,7 +2,7 @@
 #define GENESPLICER_H
 #include "Player.hpp"
 #include <string>
-
+namespace pandemic{
 class GeneSplicer:public Player
 {
     public:
@@ -11,5 +11,5 @@ class GeneSplicer:public Player
         void discover_cure(Color);
         std::string role();
 };
-
+}
 #endif // GENESPLICER_H

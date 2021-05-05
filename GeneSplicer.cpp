@@ -1,5 +1,6 @@
 #include "GeneSplicer.hpp"
 #include "MyException.h"
+using namespace pandemic;
 GeneSplicer::GeneSplicer(Board& b,int c):Player(b,c)
 {
 

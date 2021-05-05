@@ -1,6 +1,8 @@
 #include "Board.hpp"
 #include <iostream>
 using namespace std;
+namespace pandemic{
+
 Board::Board()
 {
     cities_health = new int[48];
@@ -119,15 +121,15 @@ void Board::discover_cure(int color){
 int Board::is_discovered_cure(int color){
     return cures[color]!=0;
 }
-ostream& operator<<( ostream &output,Board&) {
-         output <<"Nothing"<<endl;
-         return output;
-}
 void Board::remove_cures(){
     for(int i=0;i<4;i++)
         cures[i]=0;
 }
-
+ostream& operator<<( ostream &output,Board& b) {
+         output <<"Nothing"<<endl;
+         return output;
+}
+}
 
 
 

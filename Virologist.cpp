@@ -1,5 +1,5 @@
 #include "Virologist.hpp"
-
+using namespace pandemic;
 Virologist::Virologist(Board& b,int city):Player(b,city)
 {
 

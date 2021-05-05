@@ -4,6 +4,7 @@
 #include <string>
 #include "Board.hpp"
 using namespace std;
+namespace pandemic{
 class Player
 {
     public:
@@ -26,4 +27,5 @@ class Player
         Player& take_card(int);
         void drop_card(int);
 };
+}
 #endif

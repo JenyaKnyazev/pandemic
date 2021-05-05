@@ -1,5 +1,5 @@
 #include "Dispatcher.hpp"
-
+using namespace pandemic;
 Dispatcher::Dispatcher(Board& b,int city):Player(b,city)
 {
     //ctor

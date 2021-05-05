@@ -1,5 +1,6 @@
 #include "OperationsExpert.hpp"
 #include "MyException.h"
+using namespace pandemic;
 OperationsExpert::OperationsExpert(Board &b,int city):Player(b,city)
 {
 

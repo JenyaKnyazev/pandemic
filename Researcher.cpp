@@ -1,5 +1,6 @@
 #include "Researcher.hpp"
 #include "MyException.h"
+using namespace pandemic;
 Researcher::Researcher(Board& b,int city):Player(b,city)
 {
     //ctor

@@ -1,5 +1,6 @@
 #include "FieldDoctor.hpp"
 #include "MyException.h"
+using namespace pandemic;
 FieldDoctor::FieldDoctor(Board& b,int c):Player(b,c)
 {
 

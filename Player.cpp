@@ -1,7 +1,7 @@
 #include "Player.hpp"
 #include <iostream>
 #include "MyException.h"
-
+using namespace pandemic;
 Player::Player(Board& b,int city):board(b),current_city(city)
 {
     cards=new int[48];

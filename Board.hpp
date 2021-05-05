@@ -3,6 +3,7 @@
 #define BOARD_HPP
 
 using namespace std;
+namespace pandemic{
 class Board
 {
     public:
@@ -26,4 +27,5 @@ class Board
         int* cures;
         int** drives;
 };
+}
 #endif

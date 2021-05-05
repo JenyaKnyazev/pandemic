@@ -1,7 +1,7 @@
 #ifndef SCIENTIST_H
 #define SCIENTIST_H
 #include "Player.hpp"
-
+namespace pandemic{
 class Scientist:public Player
 {
     public:
@@ -12,5 +12,5 @@ class Scientist:public Player
     private:
         int number_of_cards_to_discover;
 };
-
+}
 #endif // SCIENTIST_H

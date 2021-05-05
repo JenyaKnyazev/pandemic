@@ -2,6 +2,7 @@
 #define FIELDDOCTOR_H
 #include "Player.hpp"
 #include <string>
+namespace pandemic{
 class FieldDoctor:public Player
 {
     public:
@@ -10,5 +11,5 @@ class FieldDoctor:public Player
         Player& treat(int);
         std::string role();
 };
-
+}
 #endif // FIELDDOCTOR_H

@@ -1,5 +1,6 @@
 #include "Medic.hpp"
 #include "MyException.h"
+using namespace pandemic;
 Medic::Medic(Board& b,int city):Player(b,city)
 {
 }

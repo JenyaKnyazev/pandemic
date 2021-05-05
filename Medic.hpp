@@ -2,6 +2,7 @@
 #define MEDIC_H
 #include "Player.hpp"
 #include <string>
+namespace pandemic{
 class Medic:public Player
 {
     public:
@@ -14,5 +15,5 @@ class Medic:public Player
         Player& drive(int);
         std::string role();
 };
-
+}
 #endif // MEDIC_H

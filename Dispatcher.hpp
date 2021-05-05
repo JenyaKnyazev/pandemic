@@ -1,7 +1,7 @@
 #ifndef DISPATCHER_H
 #define DISPATCHER_H
 #include "Player.hpp"
-
+namespace pandemic{
 class Dispatcher:public Player
 {
     public:
@@ -10,5 +10,5 @@ class Dispatcher:public Player
         Player& fly_direct(int);
         string role();
 };
-
+}
 #endif // DISPATCHER_H

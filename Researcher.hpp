@@ -1,7 +1,7 @@
 #ifndef RESEARCHER_H
 #define RESEARCHER_H
 #include "Player.hpp"
-
+namespace pandemic{
 class Researcher:public Player
 {
     public:
@@ -10,5 +10,5 @@ class Researcher:public Player
         void discover_cure(Color);
         string role();
 };
-
+}
 #endif // RESEARCHER_H

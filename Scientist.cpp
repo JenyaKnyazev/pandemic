@@ -1,5 +1,6 @@
 #include "Scientist.hpp"
 #include "MyException.h"
+using namespace pandemic;
 Scientist::Scientist(Board& b,int city,int num=4):Player(b,city)
 {
     number_of_cards_to_discover=num;
