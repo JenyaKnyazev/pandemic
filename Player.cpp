@@ -25,12 +25,13 @@ void Player::build(){
         throw MyException("don't have a card to build\n");
     board.build(current_city);
 }
-void Player::fly_direct(int c){
+Player& Player::fly_direct(int c){
     if(cards[c]==1){
         drop_card(c);
         current_city=c;
     }else
         throw MyException("dont have a card of direction city to fly direct\n");
+    return *this;
 }
 void Player::discover_cure(Color color){
     if(board.is_lab(current_city)&&count_colors[static_cast<int>(color)]>=5){
@@ -43,13 +44,14 @@ void Player::discover_cure(Color color){
     }else
         throw MyException("don't have enough cards to discover cure OR do't have lab in the current city\n");
 }
-void Player::treat(int c){
+Player& Player::treat(int c){
     if(board.get_health(current_city)==0||c!=current_city)
         throw MyException("there is no infection on the city or trying to treat not current city");
     else if( board.is_discovered_cure(board.get_color(current_city)) )
         board[current_city]=0;
     else
         board[current_city]=board[current_city]-1;
+    return *this;
 }
 Player& Player::drive(int c){
     if(board.can_drive(current_city,c)){

@@ -9,7 +9,7 @@ Virologist::~Virologist()
 {
 
 }
-void Virologist::treat(int c){
+Player& Virologist::treat(int c){
     if(c!=current_city&&cards[c]==1&&board.get_health(c)!=0&&board.is_discovered_cure(board.get_color(c))){
         board[c]=0;
         drop_card(c);
@@ -17,8 +17,9 @@ void Virologist::treat(int c){
         board[c]=board[c]-1;
         drop_card(c);
     }else{
-        Player::treat(c);
+        return Player::treat(c);
     }
+    return *this;
 }
 string Virologist::role(){
     return "Virologist";

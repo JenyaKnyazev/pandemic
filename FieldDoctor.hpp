@@ -7,7 +7,7 @@ class FieldDoctor:public Player
     public:
         FieldDoctor(Board&,int);
         virtual ~FieldDoctor();
-        void treat(int);
+        Player& treat(int);
         std::string role();
 };
 

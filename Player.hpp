@@ -16,12 +16,12 @@ class Player
     public:
         Board& board;
         virtual Player& drive(int);
-        virtual void fly_direct(int);
+        virtual Player& fly_direct(int);
         virtual void fly_charter(int);
         virtual void fly_shuttle(int);
         virtual void build();
         virtual void discover_cure(Color);
-        virtual void treat(int);
+        virtual Player& treat(int);
         virtual string role()=0;
         Player& take_card(int);
         void drop_card(int);

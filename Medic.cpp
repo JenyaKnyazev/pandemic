@@ -8,16 +8,17 @@ Medic::~Medic()
 {
     //dtor
 }
-void Medic::treat(int c){
+Player& Medic::treat(int c){
     if(board.get_health(current_city)==0||c!=current_city)
         throw MyException("there is no infection on the city or trying to treat not current city");
     while(board.get_health(current_city)>0)
-        Player::treat(c);
+        return Player::treat(c);
 }
-void Medic::fly_direct(int c){
-    Player::fly_direct(c);
+Player& Medic::fly_direct(int c){
+    Player& res=Player::fly_direct(c);
     if(board.get_health(current_city)>0)
         treat(current_city);
+    return res;
 }
 void Medic::fly_charter(int c){
     Player::fly_charter(c);

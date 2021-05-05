@@ -7,7 +7,7 @@ class Virologist:public Player
     public:
         Virologist(Board&,int);
         virtual ~Virologist();
-        void treat(int c)override;
+        Player& treat(int c)override;
         string role()override;
 };
 

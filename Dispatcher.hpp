@@ -7,7 +7,7 @@ class Dispatcher:public Player
     public:
         Dispatcher(Board&,int);
         virtual ~Dispatcher();
-        void fly_direct(int);
+        Player& fly_direct(int);
         string role();
 };
 

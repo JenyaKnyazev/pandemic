@@ -9,11 +9,12 @@ Dispatcher::~Dispatcher()
 {
     //dtor
 }
-void Dispatcher::fly_direct(int c){
-    if(board.is_lab(current_city))
+Player& Dispatcher::fly_direct(int c){
+    if(board.is_lab(current_city)){
         current_city=c;
-    else
-        Player::fly_direct(c);
+        return *this;
+    }else
+        return Player::fly_direct(c);
 }
 string Dispatcher::role(){
     return "Dispatcher";
