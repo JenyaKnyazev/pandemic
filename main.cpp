@@ -38,7 +38,7 @@ bool can_discover_cure(Board& board, Player& player, Color color) {
 	 	return false;
 	}
 }
-Color c=Color::Black;
+
 // Check the conditions in which the given player can discover a cure.
 void check_cure_discovery(Board& board, Player& player) {
 	cout << "Checking a " << player.role() << ": " << endl;
