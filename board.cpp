@@ -129,6 +129,10 @@ ostream& operator<<( ostream &output,Board& b) {
          output <<"Nothing"<<endl;
          return output;
 }
+void Board::remove_stations(){
+    for(int i=0;i<48;i++)
+        cities_labs[i]=0;
+}
 }
 
 

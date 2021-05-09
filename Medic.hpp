@@ -10,8 +10,8 @@ class Medic:public Player
         virtual ~Medic();
         Player& treat(int);
         Player& fly_direct(int);
-        void fly_charter(int);
-        void fly_shuttle(int);
+        Player& fly_charter(int);
+        Player& fly_shuttle(int);
         Player& drive(int);
         std::string role();
 };

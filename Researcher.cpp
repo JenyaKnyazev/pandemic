@@ -10,7 +10,9 @@ Researcher::~Researcher()
 {
     //dtor
 }
-void Researcher::discover_cure(Color color){
+Player& Researcher::discover_cure(Color color){
+    if( board.is_discovered_cure(static_cast<int>(color)) )
+        return *this;
     if(count_colors[static_cast<int>(color) ]>=5){
         board.discover_cure(static_cast<int>(color) );
         for(int i=0,c=0;i<48&&c<5;i++)
@@ -20,6 +22,7 @@ void Researcher::discover_cure(Color color){
             }
     }else
         throw MyException("don't have a enough cards to discover cure");
+    return *this;
 }
 string Researcher::role(){
     return "Researcher";

@@ -8,7 +8,7 @@ class GeneSplicer:public Player
     public:
         GeneSplicer(Board& b,int);
         virtual ~GeneSplicer();
-        void discover_cure(Color);
+        Player& discover_cure(Color);
         std::string role();
 };
 }

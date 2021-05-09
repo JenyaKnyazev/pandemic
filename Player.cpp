@@ -18,12 +18,14 @@ Player::~Player()
     delete[] cards;
     delete[] count_colors;
 }
-void Player::build(){
+Player& Player::build(){
     if(board.is_lab(current_city))
-        throw MyException("the city already have a lab\n");
+        return *this;
     if(cards[current_city]==0)
         throw MyException("don't have a card to build\n");
     board.build(current_city);
+    drop_card(current_city);
+    return *this;
 }
 Player& Player::fly_direct(int c){
     if(cards[c]==1){
@@ -33,7 +35,9 @@ Player& Player::fly_direct(int c){
         throw MyException("dont have a card of direction city to fly direct\n");
     return *this;
 }
-void Player::discover_cure(Color color){
+Player& Player::discover_cure(Color color){
+    if(board.is_discovered_cure(static_cast<int>(color)))
+        return *this;;
     if(board.is_lab(current_city)&&count_colors[static_cast<int>(color)]>=5){
         board.discover_cure(static_cast<int>(color) );
         for(int i=0,c=0;i<48&&c<5;i++)
@@ -43,6 +47,7 @@ void Player::discover_cure(Color color){
             }
     }else
         throw MyException("don't have enough cards to discover cure OR do't have lab in the current city\n");
+    return *this;
 }
 Player& Player::treat(int c){
     if(board.get_health(current_city)==0||c!=current_city)
@@ -69,17 +74,23 @@ void Player::drop_card(int card){
     cards[card]=0;
     count_colors[board.get_color(card)]-=1;
 }
-void Player::fly_charter(int c){
+Player& Player::fly_charter(int c){
     if(cards[current_city]==0)
         throw MyException("don't have a card of current city to fly charter");
     else{
         drop_card(current_city);
         current_city=c;
     }
+    return *this;
 }
-void Player::fly_shuttle(int c){
+Player& Player::fly_shuttle(int c){
     if(board.is_lab(c)&&board.is_lab(current_city)){
         current_city=c;
     }else
         throw MyException("don't have lab in the current city or in direct city cannot fly shuttle");
+    return *this;
+}
+void Player::remove_cards(){
+    for(int i=0;i<48;i++)
+        cards[i]=0;
 }

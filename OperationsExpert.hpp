@@ -5,7 +5,7 @@ class OperationsExpert:public Player
     public:
         OperationsExpert(Board&,int);
         virtual ~OperationsExpert();
-        void build();
+        Player& build();
         string role();
 };
 }

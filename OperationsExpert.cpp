@@ -9,11 +9,9 @@ OperationsExpert::OperationsExpert(Board &b,int city):Player(b,city)
 OperationsExpert::~OperationsExpert()
 {
 }
-void OperationsExpert::build(){
-    if(board.is_lab(current_city))
-        throw MyException("already have a lab in current city");
-    else
-        board.build(current_city);
+Player& OperationsExpert::build(){
+    board.build(current_city);
+    return *this;
 }
 string OperationsExpert::role(){
     return "OperationsExpert";

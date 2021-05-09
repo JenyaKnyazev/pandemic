@@ -7,7 +7,7 @@ class Researcher:public Player
     public:
         Researcher(Board&,int);
         virtual ~Researcher();
-        void discover_cure(Color);
+        Player& discover_cure(Color);
         string role();
 };
 }

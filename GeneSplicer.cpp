@@ -10,8 +10,10 @@ GeneSplicer::~GeneSplicer()
 {
 
 }
-void GeneSplicer::discover_cure(Color color){
+Player& GeneSplicer::discover_cure(Color color){
     int c=0;
+    if( board.is_discovered_cure(static_cast<int>(color)) )
+        return *this;
     for(int i=0;i<48;i++)
         if(cards[i]==1)
             c++;
@@ -24,6 +26,7 @@ void GeneSplicer::discover_cure(Color color){
             }
     }else
         throw MyException("don't have enough cards to discover a cure or there is no lab in the city");
+    return *this;
 }
 std::string GeneSplicer::role(){
     return "GeneSplicer";

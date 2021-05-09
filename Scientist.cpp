@@ -10,7 +10,9 @@ Scientist::~Scientist()
 {
 }
 
-void Scientist::discover_cure(Color color){
+Player& Scientist::discover_cure(Color color){
+    if( board.is_discovered_cure(static_cast<int>(color)) )
+        return *this;
     if(board.is_lab(current_city)&&count_colors[static_cast<int>(color)]>=number_of_cards_to_discover){
         board.discover_cure(static_cast<int>(color) );
         for(int i=0,c=0;i<48&&c<number_of_cards_to_discover;i++)
@@ -20,6 +22,7 @@ void Scientist::discover_cure(Color color){
             }
     }else
         throw MyException("don't have enough cards to discover cure OR there is no lab in the city");
+    return *this;
 }
 string Scientist::role(){
     return "Scientist";
