@@ -23,7 +23,7 @@ class Player
         virtual Player& build();
         virtual Player& discover_cure(Color);
         virtual Player& treat(int);
-        virtual string role()=0;
+        virtual string role();
         Player& take_card(int);
         void drop_card(int);
         void remove_cards();

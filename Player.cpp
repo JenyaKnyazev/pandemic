@@ -94,3 +94,17 @@ void Player::remove_cards(){
     for(int i=0;i<48;i++)
         cards[i]=0;
 }
+string Player::role(){
+    return "Player";
+}
+
+
+
+
+
+
+
+
+
+
+
